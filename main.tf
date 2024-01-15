@@ -26,12 +26,12 @@ resource "aws_instance" "blog" {
   vpc_security_group_ids = [aws_security_group.blog.id]
 }
 
-resource "aws_security_group" "blog"
-  name = "blog" {
-  description = Allow http and https in, everything else out
-}
+resource "aws_security_group" "blog" {
+  name = "blog" 
+  description = "Allow http and https in, everything else out"
 
-vpc_id = data.aws_vpc.default.id
+  vpc_id = data.aws_vpc.default.id
+}
 
 resource "aws_security_group_rule" "blog_http_in" {
 type = "ingress"
